@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2025 a las 01:15:39
+-- Tiempo de generación: 22-10-2025 a las 02:51:17
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -31,7 +31,7 @@ CREATE TABLE `artista` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `genero` varchar(50) NOT NULL,
-  `cuidad_origen` varchar(50) NOT NULL
+  `ciudad_origen` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -47,7 +47,8 @@ CREATE TABLE `evento` (
   `fecha_inicio` datetime NOT NULL,
   `fecha_fin` datetime NOT NULL,
   `municipio` varchar(50) NOT NULL,
-  `departamento` varchar(50) NOT NULL
+  `departamento` varchar(50) NOT NULL,
+  `id_artista` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -58,7 +59,8 @@ CREATE TABLE `evento` (
 
 CREATE TABLE `localidad` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL
+  `nombre` varchar(50) NOT NULL,
+  `codigo` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -89,7 +91,8 @@ ALTER TABLE `artista`
 -- Indices de la tabla `evento`
 --
 ALTER TABLE `evento`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `artista_evento` (`id_artista`);
 
 --
 -- Indices de la tabla `localidad`
@@ -130,6 +133,16 @@ ALTER TABLE `localidad`
 --
 ALTER TABLE `palcos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `evento`
+--
+ALTER TABLE `evento`
+  ADD CONSTRAINT `artista_evento` FOREIGN KEY (`id_artista`) REFERENCES `artista` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
