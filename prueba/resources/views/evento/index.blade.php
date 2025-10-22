@@ -35,7 +35,7 @@
                     <td>{{ $evento["descripcion"] }}</td>
                     <td>{{ $evento["fecha_inicio"] }}</td>
                     <td>{{ $evento["fecha_fin"] }}</td>
-                    <td>{{ $evento->artista->name }}</td>
+                    <td>{{ $evento->artista->nombre }}</td>
                     <td>{{ $evento["municipio"] }}</td>
                     <td>{{ $evento["departamento"] }}</td>
                     <td>
