@@ -10,6 +10,7 @@ class Palco extends Model
     use HasFactory;
 
     protected $table = 'palco';
+    public $timestamps = false;
     protected $fillable = [
         'nombre',
         'cantidad',

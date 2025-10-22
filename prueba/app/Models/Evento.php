@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evento extends Model
 {
+
     use HasFactory;
 
     protected $table = 'evento';
+    public $timestamps = false;
     protected $fillable = [
         'nombre',
         'descripcion',
@@ -29,5 +31,6 @@ class Evento extends Model
     {
         return $this ->hasMany(Palco:: class);
     }
+
 
 }

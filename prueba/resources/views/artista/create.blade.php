@@ -1,31 +1,31 @@
 @extends('templates.base')
-@section('title', 'Crear causal')
-@section('header', 'Crear causal')
+@section('title', 'Crear Artistas')
+@section('header', 'Crear Artistas')
 @section('content')
     @include('templates.messages')
 
 <div class="row">
     <div class="col-lg-12 mb-4">
-        <form action="{{ route('causal.store') }}" method="post">
+        <form action="{{ route('artista.store') }}" method="post">
             @csrf
             <div class="row form-group">
                 <div class="col-lg-12 mb-4">
-                    <label for="description">Descripción</label>
-                    <input type="text" class="form-control" name="description" id="description" 
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" 
                     required value="{{ old('nombre') }}">
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col-lg-12 mb-4">
-                    <label for="description">Descripción</label>
-                    <input type="text" class="form-control" name="description" id="description" 
+                    <label for="genero">Genero</label>
+                    <input type="text" class="form-control" name="genero" id="genero" 
                     required value="{{ old('genero') }}">
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col-lg-12 mb-4">
-                    <label for="description">Descripción</label>
-                    <input type="text" class="form-control" name="description" id="description" 
+                    <label for="ciudad_origen">Ciudad Origen</label>
+                    <input type="text" class="form-control" name="ciudad_origen" id="ciudad_origen" 
                     required value="{{ old('ciudad_origen') }}">
                 </div>
             </div>
@@ -35,7 +35,7 @@
                 </div>
                 <br><br>
                 <div class="col-lg-6">
-                    <a href="{{ route('causal.index') }}" class="btn btn-secondary btn-block">Cancelar</a>
+                    <a href="{{ route('artista.index') }}" class="btn btn-secondary btn-block">Cancelar</a>
                 </div>
             </div>
         </form>
